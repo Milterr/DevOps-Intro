@@ -557,3 +557,61 @@ git push origin v1.0.0
 Почему теги важны:
 Теги задают чёткие точки версий в истории Git.
 Они помогают с версионированием, триггерами CI/CD и отслеживанием релизов.
+
+
+
+
+
+
+
+PS C:\Users\David\PycharmProjects\INT\DevOps-Intro> git switch -c cmd-compare
+Switched to a new branch 'cmd-compare'
+PS C:\Users\David\PycharmProjects\INT\DevOps-Intro> echo "change" >> demo.txt
+PS C:\Users\David\PycharmProjects\INT\DevOps-Intro> git status
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   demo.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+PS C:\Users\David\PycharmProjects\INT\DevOps-Intro> git restore demo.txt
+PS C:\Users\David\PycharmProjects\INT\DevOps-Intro> git status
+PS C:\Users\David\PycharmProjects\INT\DevOps-Intro> git add demo.txt
+PS C:\Users\David\PycharmProjects\INT\DevOps-Intro> git status
+        modified:   demo.txt
+
+PS C:\Users\David\PycharmProjects\INT\DevOps-Intro> git restore --staged demo.txt
+PS C:\Users\David\PycharmProjects\INT\DevOps-Intro> git status
+On branch cmd-compare
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+        modified:   demo.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+PS C:\Users\David\PycharmProjects\INT\DevOps-Intro> echo "second change" >> demo.txt
+PS C:\Users\David\PycharmProjects\INT\DevOps-Intro> git commit -m "chore: update demo file"
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+PS C:\Users\David\PycharmProjects\INT\DevOps-Intro>
+PS C:\Users\David\PycharmProjects\INT\DevOps-Intro> git restore --source=HEAD~1 demo.txt
+PS C:\Users\David\PycharmProjects\INT\DevOps-Intro> git status
+On branch cmd-compare
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   demo.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+
+ Наблюдения по выводам status/branch
+```
+- После `git switch` текущая ветка изменилась, как и ожидалось.  
+- `git checkout` тоже переключил ветку, но совмещает операции с ветками и файлами в одной команде.  
+- `git restore demo.txt` откатил локальные правки файла (только отслеживаемого файла).  
+- `git restore --staged demo.txt` убрал изменения из staged.  
+- `git restore --source=HEAD~1 demo.txt` заменил содержимое файла данными из предыдущего коммита.
+
+ Практическое правило
+
+`switch` лучше использовать для веток, `restore` — для файлов, а `checkout` — более старая и менее понятная команда.  
+Современные команды легче читать и безопаснее в повседневной командной работе.
+```
