@@ -312,3 +312,208 @@ Hard reset удалил следующий коммит и очистил как
 Все выводы команд приведены выше, поэтому этот раздел сосредоточен на интерпретации.
 Ключевой вывод прост: reset может переписывать локальную историю, но reflog позволяет восстановить предыдущие состояния HEAD.
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PS C:\Users\David\PycharmProjects\INT\DevOps-Intro> git switch -c side-branch
+PS C:\Users\David\PycharmProjects\INT\DevOps-Intro> echo "Branch commit" >> history.txt
+PS C:\Users\David\PycharmProjects\INT\DevOps-Intro> git add history.txt
+[side-branch d3081bb] Side branch commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 history.txt
+PS C:\Users\David\PycharmProjects\INT\DevOps-Intro> git switch -
+Switched to branch 'feature/lab2'
+Your branch is up to date with 'origin/feature/lab2'.
+PS C:\Users\David\PycharmProjects\INT\DevOps-Intro> git log --oneline --graph --all
+* d3081bb (side-branch) Side branch commit
+* e6bab03 (HEAD -> feature/lab2, origin/feature/lab2) Tast 2 complete
+* d3081bb (side-branch) Side branch commit
+* e6bab03 (HEAD -> feature/lab2, origin/feature/lab2) Tast 2 complete
+| * 73de61f (git-reset-practice) Third commit
+| * ffd0682 Second commit
+| * f5a79ed First commit
+|/
+* 46f458d Tast 1 complete
+* f8d938f Add test file
+* d7b6a66 (origin/main, origin/HEAD, main) chore: add PR template
+| * 4dacaec (origin/feature/lab1, feature/lab1) docs: complete lab1 submission
+| * 347e452 docs: added scrinshots
+| * d2de4a6 docs: add lab1 submission stub
+|/
+* d6b6a03 Update lab2
+* 87810a0 feat: remove old Exam Exemption Policy
+* d3081bb (side-branch) Side branch commit
+* e6bab03 (HEAD -> feature/lab2, origin/feature/lab2) Tast 2 complete
+| * 73de61f (git-reset-practice) Third commit
+| * ffd0682 Second commit
+| * f5a79ed First commit
+|/
+* 46f458d Tast 1 complete
+* f8d938f Add test file
+* d7b6a66 (origin/main, origin/HEAD, main) chore: add PR template
+| * 4dacaec (origin/feature/lab1, feature/lab1) docs: complete lab1 submission
+| * 347e452 docs: added scrinshots
+| * d2de4a6 docs: add lab1 submission stub
+|/
+* d6b6a03 Update lab2
+* 87810a0 feat: remove old Exam Exemption Policy
+* 1e1c32b feat: update structure
+* 6c27ee7 feat: publish lecs 9 & 10
+* 1826c36 feat: update lab7
+* 3049f08 feat: publish lec8
+* da8f635 feat: introduce all labs and revised structure
+* 04b174e feat: publish lab and lec #5
+* 67f12f1 feat: publish labs 4&5, revise others
+* 82d1989 feat: publish lab3 and lec3
+* d3081bb (side-branch) Side branch commit
+* e6bab03 (HEAD -> feature/lab2, origin/feature/lab2) Tast 2 complete
+| * 73de61f (git-reset-practice) Third commit
+| * ffd0682 Second commit
+| * f5a79ed First commit
+|/
+* 46f458d Tast 1 complete
+* f8d938f Add test file
+* d7b6a66 (origin/main, origin/HEAD, main) chore: add PR template
+| * 4dacaec (origin/feature/lab1, feature/lab1) docs: complete lab1 submission
+| * 347e452 docs: added scrinshots
+| * d2de4a6 docs: add lab1 submission stub
+|/
+* d6b6a03 Update lab2
+* 87810a0 feat: remove old Exam Exemption Policy
+* 1e1c32b feat: update structure
+* 6c27ee7 feat: publish lecs 9 & 10
+* 1826c36 feat: update lab7
+* 3049f08 feat: publish lec8
+* da8f635 feat: introduce all labs and revised structure
+* 04b174e feat: publish lab and lec #5
+* 67f12f1 feat: publish labs 4&5, revise others
+* 82d1989 feat: publish lab3 and lec3
+* 3f80c83 feat: publish lec2
+* 499f2ba feat: publish lab2
+* d3081bb (side-branch) Side branch commit
+* e6bab03 (HEAD -> feature/lab2, origin/feature/lab2) Tast 2 complete
+| * 73de61f (git-reset-practice) Third commit
+| * ffd0682 Second commit
+| * f5a79ed First commit
+|/
+* 46f458d Tast 1 complete
+* f8d938f Add test file
+* d7b6a66 (origin/main, origin/HEAD, main) chore: add PR template
+| * 4dacaec (origin/feature/lab1, feature/lab1) docs: complete lab1 submission
+| * 347e452 docs: added scrinshots
+| * d2de4a6 docs: add lab1 submission stub
+|/
+* d6b6a03 Update lab2
+* 87810a0 feat: remove old Exam Exemption Policy
+* 1e1c32b feat: update structure
+* 6c27ee7 feat: publish lecs 9 & 10
+* 1826c36 feat: update lab7
+* 3049f08 feat: publish lec8
+* da8f635 feat: introduce all labs and revised structure
+* 04b174e feat: publish lab and lec #5
+* 67f12f1 feat: publish labs 4&5, revise others
+* 82d1989 feat: publish lab3 and lec3
+* 3f80c83 feat: publish lec2
+* 499f2ba feat: publish lab2
+* af0da89 feat: update lab1
+* 74a8c27 Publish lab1
+* f0485c0 Publish lec1
+* d3081bb (side-branch) Side branch commit
+* e6bab03 (HEAD -> feature/lab2, origin/feature/lab2) Tast 2 complete
+| * 73de61f (git-reset-practice) Third commit
+| * ffd0682 Second commit
+| * f5a79ed First commit
+|/
+* 46f458d Tast 1 complete
+* f8d938f Add test file
+* d7b6a66 (origin/main, origin/HEAD, main) chore: add PR template
+| * 4dacaec (origin/feature/lab1, feature/lab1) docs: complete lab1 submission
+| * 347e452 docs: added scrinshots
+| * d2de4a6 docs: add lab1 submission stub
+|/
+* d6b6a03 Update lab2
+* 87810a0 feat: remove old Exam Exemption Policy
+* 1e1c32b feat: update structure
+* 6c27ee7 feat: publish lecs 9 & 10
+* 1826c36 feat: update lab7
+* 3049f08 feat: publish lec8
+* da8f635 feat: introduce all labs and revised structure
+* 04b174e feat: publish lab and lec #5
+* 67f12f1 feat: publish labs 4&5, revise others
+* 82d1989 feat: publish lab3 and lec3
+* 3f80c83 feat: publish lec2
+* 499f2ba feat: publish lab2
+* af0da89 feat: update lab1
+* 74a8c27 Publish lab1
+* f0485c0 Publish lec1
+* 31dd11b Publish README.md
+~
+(END)...skipping...
+* d3081bb (side-branch) Side branch commit
+* e6bab03 (HEAD -> feature/lab2, origin/feature/lab2) Tast 2 complete
+| * 73de61f (git-reset-practice) Third commit
+| * ffd0682 Second commit
+| * f5a79ed First commit
+|/
+* 46f458d Tast 1 complete
+* f8d938f Add test file
+* d7b6a66 (origin/main, origin/HEAD, main) chore: add PR template
+| * 4dacaec (origin/feature/lab1, feature/lab1) docs: complete lab1 submission
+| * 347e452 docs: added scrinshots
+| * d2de4a6 docs: add lab1 submission stub
+|/
+* d6b6a03 Update lab2
+* 87810a0 feat: remove old Exam Exemption Policy
+* 1e1c32b feat: update structure
+* 6c27ee7 feat: publish lecs 9 & 10
+* 1826c36 feat: update lab7
+* 3049f08 feat: publish lec8
+* da8f635 feat: introduce all labs and revised structure
+* 04b174e feat: publish lab and lec #5
+* 67f12f1 feat: publish labs 4&5, revise others
+* 82d1989 feat: publish lab3 and lec3
+* 3f80c83 feat: publish lec2
+* 499f2ba feat: publish lab2
+* af0da89 feat: update lab1
+* 74a8c27 Publish lab1
+* f0485c0 Publish lec1
+* 31dd11b Publish README.md
+~
+~
+(END)
+
+
+
+Для этого задания я создал ветку side-branch, сделал в ней один коммит, вернулся обратно и проверил историю с помощью:
+
+git log --oneline --graph --all
+
+Фрагмент графа приложен выше. Он наглядно показывает линию ветки и порядок коммитов во всех ветках.
+
+Сообщения коммитов, видимые в графе:
+- Side branch commit
+
+Рефлексия:
+--graph даёт ясную картину потока ветвления и связей между коммитами.  
+Это упрощает отладку и ревью кода, особенно когда
