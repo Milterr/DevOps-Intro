@@ -57,3 +57,258 @@ committer Davis Serafimov surikatser@mail.ru
 
 1......... +0300
 ```
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------
+
+
+
+
+PS C:\Users\David\PycharmProjects\INT\DevOps-Intro> git switch -c git-reset-practice
+>> "First commit"  | Out-File -Encoding utf8 file.txt
+>> git add file.txt
+>> 
+>> "Second commit" | Add-Content file.txt
+>> git add file.txt
+>> git commit -m "Second commit"
+>> 
+>> "Third commit"  | Add-Content file.txt
+>> git add file.txt
+>> git commit -m "Third commit"
+>> 
+   ird commit"  | Add-Content file.txt\x0agit add file.txt\x0agit commiSwitched to a new branch 'git-reset-practice'c7-d1ddb6af0e62
+[git-reset-practice f5a79ed] First commit
+ create mode 100644 file.txt
+[git-reset-practice ffd0682] Second commit
+ 1 file changed, 1 insertion(+)
+[git-reset-practice 73de61f] Third commit
+ 1 file changed, 1 insertion(+)
+>> git status
+>>
+73de61f (HEAD -> git-reset-practice) Third commit
+ffd0682 Second commit
+f5a79ed First commit
+nothing to commit, working tree clean
+PS C:\Users\David\PycharmProjects\INT\DevOps-Intro> git reset --soft HEAD~1
+PS C:\Users\David\PycharmProjects\INT\DevOps-Intro> git status
+Changes to be committed:
+        modified:   file.txt
+
+ffd0682 (HEAD -> git-reset-practice) Second commit
+f5a79ed First commit
+46f458d (origin/feature/lab2, feature/lab2) Tast 1 complete
+HEAD is now at f5a79ed First commit
+PS C:\Users\David\PycharmProjects\INT\DevOps-Intro> git status
+On branch git-reset-practice
+nothing to commit, working tree clean
+PS C:\Users\David\PycharmProjects\INT\DevOps-Intro> git log --oneline -3
+f5a79ed (HEAD -> git-reset-practice) First commit
+46f458d (origin/feature/lab2, feature/lab2) Tast 1 complete
+f8d938f Add test file
+PS C:\Users\David\PycharmProjects\INT\DevOps-Intro> git reflog
+f5a79ed (HEAD -> git-reset-practice) HEAD@{0}: reset: moving to HEAD~1
+ffd0682 HEAD@{1}: reset: moving to HEAD~1
+73de61f HEAD@{2}: commit: Third commit
+ffd0682 HEAD@{3}: commit: Second commit
+f5a79ed (HEAD -> git-reset-practice) HEAD@{4}: commit: First commit
+46f458d (origin/feature/lab2, feature/lab2) HEAD@{5}: checkout: moving from feature/lab2 to git-reset-practice   
+46f458d (origin/feature/lab2, feature/lab2) HEAD@{6}: commit: Tast 1 complete
+f8d938f HEAD@{7}: commit: Add test file
+d7b6a66 (origin/main, origin/HEAD, main) HEAD@{8}: checkout: moving from main to feature/lab2
+d7b6a66 (origin/main, origin/HEAD, main) HEAD@{9}: checkout: moving from feature/lab1 to main
+f5a79ed (HEAD -> git-reset-practice) HEAD@{0}: reset: moving to HEAD~1
+ffd0682 HEAD@{1}: reset: moving to HEAD~1
+73de61f HEAD@{2}: commit: Third commit
+ffd0682 HEAD@{3}: commit: Second commit
+f5a79ed (HEAD -> git-reset-practice) HEAD@{4}: commit: First commit
+46f458d (origin/feature/lab2, feature/lab2) HEAD@{5}: checkout: moving from feature/lab2 to git-reset-practice   
+46f458d (origin/feature/lab2, feature/lab2) HEAD@{6}: commit: Tast 1 complete
+f8d938f HEAD@{7}: commit: Add test file
+d7b6a66 (origin/main, origin/HEAD, main) HEAD@{8}: checkout: moving from main to feature/lab2
+d7b6a66 (origin/main, origin/HEAD, main) HEAD@{9}: checkout: moving from feature/lab1 to main
+4dacaec (origin/feature/lab1, feature/lab1) HEAD@{10}: commit: docs: complete lab1 submission
+347e452 HEAD@{11}: checkout: moving from feature/lab1 to feature/lab1
+347e452 HEAD@{12}: checkout: moving from feature/lab1 to feature/lab1
+347e452 HEAD@{13}: commit: docs: added scrinshots
+d2de4a6 HEAD@{14}: checkout: moving from main to feature/lab1
+d7b6a66 (origin/main, origin/HEAD, main) HEAD@{15}: checkout: moving from feature/lab1 to main
+d2de4a6 HEAD@{16}: checkout: moving from main to feature/lab1
+d7b6a66 (origin/main, origin/HEAD, main) HEAD@{17}: checkout: moving from feature/lab1 to main
+d2de4a6 HEAD@{18}: reset: moving to origin/feature/lab1
+d2de4a6 HEAD@{19}: checkout: moving from main to feature/lab1
+f5a79ed (HEAD -> git-reset-practice) HEAD@{0}: reset: moving to HEAD~1
+ffd0682 HEAD@{1}: reset: moving to HEAD~1
+73de61f HEAD@{2}: commit: Third commit
+ffd0682 HEAD@{3}: commit: Second commit
+f5a79ed (HEAD -> git-reset-practice) HEAD@{4}: commit: First commit
+46f458d (origin/feature/lab2, feature/lab2) HEAD@{5}: checkout: moving from feature/lab2 to git-reset-practice   
+46f458d (origin/feature/lab2, feature/lab2) HEAD@{6}: commit: Tast 1 complete
+f8d938f HEAD@{7}: commit: Add test file
+d7b6a66 (origin/main, origin/HEAD, main) HEAD@{8}: checkout: moving from main to feature/lab2
+d7b6a66 (origin/main, origin/HEAD, main) HEAD@{9}: checkout: moving from feature/lab1 to main
+4dacaec (origin/feature/lab1, feature/lab1) HEAD@{10}: commit: docs: complete lab1 submission
+347e452 HEAD@{11}: checkout: moving from feature/lab1 to feature/lab1
+347e452 HEAD@{12}: checkout: moving from feature/lab1 to feature/lab1
+347e452 HEAD@{13}: commit: docs: added scrinshots
+d2de4a6 HEAD@{14}: checkout: moving from main to feature/lab1
+d7b6a66 (origin/main, origin/HEAD, main) HEAD@{15}: checkout: moving from feature/lab1 to main
+d2de4a6 HEAD@{16}: checkout: moving from main to feature/lab1
+d7b6a66 (origin/main, origin/HEAD, main) HEAD@{17}: checkout: moving from feature/lab1 to main
+d2de4a6 HEAD@{18}: reset: moving to origin/feature/lab1
+d2de4a6 HEAD@{19}: checkout: moving from main to feature/lab1
+d7b6a66 (origin/main, origin/HEAD, main) HEAD@{20}: commit: chore: add PR template
+d6b6a03 HEAD@{21}: reset: moving to origin/main
+d6b6a03 HEAD@{22}: checkout: moving from feature/lab1 to main
+d2de4a6 HEAD@{23}: reset: moving to HEAD~1
+8f6ed9f HEAD@{24}: commit: chore: add PR template
+f5a79ed (HEAD -> git-reset-practice) HEAD@{0}: reset: moving to HEAD~1
+ffd0682 HEAD@{1}: reset: moving to HEAD~1
+73de61f HEAD@{2}: commit: Third commit
+ffd0682 HEAD@{3}: commit: Second commit
+f5a79ed (HEAD -> git-reset-practice) HEAD@{4}: commit: First commit
+46f458d (origin/feature/lab2, feature/lab2) HEAD@{5}: checkout: moving from feature/lab2 to git-reset-practice   
+46f458d (origin/feature/lab2, feature/lab2) HEAD@{6}: commit: Tast 1 complete
+f8d938f HEAD@{7}: commit: Add test file
+d7b6a66 (origin/main, origin/HEAD, main) HEAD@{8}: checkout: moving from main to feature/lab2
+d7b6a66 (origin/main, origin/HEAD, main) HEAD@{9}: checkout: moving from feature/lab1 to main
+4dacaec (origin/feature/lab1, feature/lab1) HEAD@{10}: commit: docs: complete lab1 submission
+347e452 HEAD@{11}: checkout: moving from feature/lab1 to feature/lab1
+347e452 HEAD@{12}: checkout: moving from feature/lab1 to feature/lab1
+347e452 HEAD@{13}: commit: docs: added scrinshots
+d2de4a6 HEAD@{14}: checkout: moving from main to feature/lab1
+d7b6a66 (origin/main, origin/HEAD, main) HEAD@{15}: checkout: moving from feature/lab1 to main
+d2de4a6 HEAD@{16}: checkout: moving from main to feature/lab1
+d7b6a66 (origin/main, origin/HEAD, main) HEAD@{17}: checkout: moving from feature/lab1 to main
+d2de4a6 HEAD@{18}: reset: moving to origin/feature/lab1
+d2de4a6 HEAD@{19}: checkout: moving from main to feature/lab1
+d7b6a66 (origin/main, origin/HEAD, main) HEAD@{20}: commit: chore: add PR template
+d6b6a03 HEAD@{21}: reset: moving to origin/main
+d6b6a03 HEAD@{22}: checkout: moving from feature/lab1 to main
+d2de4a6 HEAD@{23}: reset: moving to HEAD~1
+8f6ed9f HEAD@{24}: commit: chore: add PR template
+f5a79ed (HEAD -> git-reset-practice) HEAD@{0}: reset: moving to HEAD~1
+ffd0682 HEAD@{1}: reset: moving to HEAD~1
+73de61f HEAD@{2}: commit: Third commit
+ffd0682 HEAD@{3}: commit: Second commit
+f5a79ed (HEAD -> git-reset-practice) HEAD@{4}: commit: First commit
+46f458d (origin/feature/lab2, feature/lab2) HEAD@{5}: checkout: moving from feature/lab2 to git-reset-practice   
+46f458d (origin/feature/lab2, feature/lab2) HEAD@{6}: commit: Tast 1 complete
+f8d938f HEAD@{7}: commit: Add test file
+d7b6a66 (origin/main, origin/HEAD, main) HEAD@{8}: checkout: moving from main to feature/lab2
+d7b6a66 (origin/main, origin/HEAD, main) HEAD@{9}: checkout: moving from feature/lab1 to main
+4dacaec (origin/feature/lab1, feature/lab1) HEAD@{10}: commit: docs: complete lab1 submission
+347e452 HEAD@{11}: checkout: moving from feature/lab1 to feature/lab1
+347e452 HEAD@{12}: checkout: moving from feature/lab1 to feature/lab1
+347e452 HEAD@{13}: commit: docs: added scrinshots
+d2de4a6 HEAD@{14}: checkout: moving from main to feature/lab1
+d7b6a66 (origin/main, origin/HEAD, main) HEAD@{15}: checkout: moving from feature/lab1 to main
+d2de4a6 HEAD@{16}: checkout: moving from main to feature/lab1
+d7b6a66 (origin/main, origin/HEAD, main) HEAD@{17}: checkout: moving from feature/lab1 to main
+d2de4a6 HEAD@{18}: reset: moving to origin/feature/lab1
+d2de4a6 HEAD@{19}: checkout: moving from main to feature/lab1
+d7b6a66 (origin/main, origin/HEAD, main) HEAD@{20}: commit: chore: add PR template
+d6b6a03 HEAD@{21}: reset: moving to origin/main
+d6b6a03 HEAD@{22}: checkout: moving from feature/lab1 to main
+d2de4a6 HEAD@{23}: reset: moving to HEAD~1
+f5a79ed (HEAD -> git-reset-practice) HEAD@{0}: reset: moving to HEAD~1
+ffd0682 HEAD@{1}: reset: moving to HEAD~1
+73de61f HEAD@{2}: commit: Third commit
+ffd0682 HEAD@{3}: commit: Second commit
+f5a79ed (HEAD -> git-reset-practice) HEAD@{4}: commit: First commit
+46f458d (origin/feature/lab2, feature/lab2) HEAD@{5}: checkout: moving from feature/lab2 to git-reset-practice   
+46f458d (origin/feature/lab2, feature/lab2) HEAD@{6}: commit: Tast 1 complete
+f8d938f HEAD@{7}: commit: Add test file
+d7b6a66 (origin/main, origin/HEAD, main) HEAD@{8}: checkout: moving from main to feature/lab2
+d7b6a66 (origin/main, origin/HEAD, main) HEAD@{9}: checkout: moving from feature/lab1 to main
+4dacaec (origin/feature/lab1, feature/lab1) HEAD@{10}: commit: docs: complete lab1 submission
+347e452 HEAD@{11}: checkout: moving from feature/lab1 to feature/lab1
+347e452 HEAD@{12}: checkout: moving from feature/lab1 to feature/lab1
+347e452 HEAD@{13}: commit: docs: added scrinshots
+d2de4a6 HEAD@{14}: checkout: moving from main to feature/lab1
+d7b6a66 (origin/main, origin/HEAD, main) HEAD@{15}: checkout: moving from feature/lab1 to main
+d2de4a6 HEAD@{16}: checkout: moving from main to feature/lab1
+d7b6a66 (origin/main, origin/HEAD, main) HEAD@{17}: checkout: moving from feature/lab1 to main
+d2de4a6 HEAD@{18}: reset: moving to origin/feature/lab1
+d2de4a6 HEAD@{19}: checkout: moving from main to feature/lab1
+d7b6a66 (origin/main, origin/HEAD, main) HEAD@{20}: commit: chore: add PR template
+d6b6a03 HEAD@{21}: reset: moving to origin/main
+d6b6a03 HEAD@{22}: checkout: moving from feature/lab1 to main
+d2de4a6 HEAD@{23}: reset: moving to HEAD~1
+8f6ed9f HEAD@{24}: commit: chore: add PR template
+d2de4a6 HEAD@{25}: commit: docs: add lab1 submission stub
+d6b6a03 HEAD@{26}: checkout: moving from main to feature/lab1
+d6b6a03 HEAD@{27}: reset: moving to origin/main
+d6b6a03 HEAD@{28}: checkout: moving from main to main
+d6b6a03 HEAD@{29}: clone: from https://github.com/Milterr/DevOps-Intro.git
+~
+~
+~
+~
+~
+(END)...skipping...
+ffd0682 HEAD@{1}: reset: moving to HEAD~1
+ffd0682 HEAD@{3}: commit: Second commit
+f5a79ed (HEAD -> git-reset-practice) HEAD@{4}: commit: First commit
+46f458d (origin/feature/lab2, feature/lab2) HEAD@{5}: checkout: moving from feature/lab2 to git-reset-practice   
+f8d938f HEAD@{7}: commit: Add test file
+d7b6a66 (origin/main, origin/HEAD, main) HEAD@{8}: checkout: moving from main to feature/lab2
+d7b6a66 (origin/main, origin/HEAD, main) HEAD@{9}: checkout: moving from feature/lab1 to main
+4dacaec (origin/feature/lab1, feature/lab1) HEAD@{10}: commit: docs: complete lab1 submission
+347e452 HEAD@{11}: checkout: moving from feature/lab1 to feature/lab1
+347e452 HEAD@{12}: checkout: moving from feature/lab1 to feature/lab1
+347e452 HEAD@{13}: commit: docs: added scrinshots
+d2de4a6 HEAD@{14}: checkout: moving from main to feature/lab1
+d7b6a66 (origin/main, origin/HEAD, main) HEAD@{15}: checkout: moving from feature/lab1 to main
+d2de4a6 HEAD@{16}: checkout: moving from main to feature/lab1
+d7b6a66 (origin/main, origin/HEAD, main) HEAD@{17}: checkout: moving from feature/lab1 to main
+d2de4a6 HEAD@{18}: reset: moving to origin/feature/lab1
+d2de4a6 HEAD@{19}: checkout: moving from main to feature/lab1
+d7b6a66 (origin/main, origin/HEAD, main) HEAD@{20}: commit: chore: add PR template
+d6b6a03 HEAD@{21}: reset: moving to origin/main
+d6b6a03 HEAD@{22}: checkout: moving from feature/lab1 to main
+d2de4a6 HEAD@{23}: reset: moving to HEAD~1
+8f6ed9f HEAD@{24}: commit: chore: add PR template
+d2de4a6 HEAD@{25}: commit: docs: add lab1 submission stub
+d6b6a03 HEAD@{26}: checkout: moving from main to feature/lab1
+d6b6a03 HEAD@{27}: reset: moving to origin/main
+d6b6a03 HEAD@{28}: checkout: moving from main to main
+d6b6a03 HEAD@{29}: clone: from https://github.com/Milterr/DevOps-Intro.git
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+PS C:\Users\David\PycharmProjects\INT\DevOps-Intro> git reset --hard 73de61f 
+HEAD is now at 73de61f Third commit
+PS C:\Users\David\PycharmProjects\INT\DevOps-Intro> git log --oneline -3
+73de61f (HEAD -> git-reset-practice) Third commit
+ffd0682 Second commit
+f5a79ed First commit
+PS C:\Users\David\PycharmProjects\INT\DevOps-Intro> git switch feature/lab2
+Switched to branch 'feature/lab2'
+Your branch is up to date with 'origin/feature/lab2'.
+PS C:\Users\David\PycharmProjects\INT\DevOps-Intro>
+
+
+```
+Я выполнил процедуру reset в отдельной ветке, чтобы проверить изменения истории без риска для основной лабораторной ветки.
+Soft reset удалил последний коммит из истории, но оставил его изменения файлов в staged-состоянии.
+Hard reset удалил следующий коммит и очистил как индекс, так и рабочее дерево.
+С помощью reflog я нашёл хеш удалённого «Third commit» (73de61f) и восстановил состояние ветки.
+Все выводы команд приведены выше, поэтому этот раздел сосредоточен на интерпретации.
+Ключевой вывод прост: reset может переписывать локальную историю, но reflog позволяет восстановить предыдущие состояния HEAD.
+```
